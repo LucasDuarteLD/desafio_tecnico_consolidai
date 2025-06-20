@@ -1,0 +1,48 @@
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+.env
+
+# PHP
+vendor/
+composer.lock
+
+# React (caso crie projeto separado no front)
+build/
+dist/
+
+# VSCode
+.vscode/
+
+# SO (Windows / outros)
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Logs
+*.log
+logs/
+*.pid
+
+# DB (caso use dump local)
+*.sql
+*.sqlite
+
+# Cache
+.cache/
+tmp/
+temp/
+
+# Test/coverage
+coverage/
+
+# IDEs
+.idea/
+*.swp
+
+# Outros
+.DS_Store
+
