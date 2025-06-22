@@ -67,13 +67,104 @@ Em casos de problema de execução do ambiente do avaliador, o teste poderá ser
 7. Express
 8. React
 
-## Instalação
+# Instalação
 
-  Em desenvolvimento...
+## ✅ Verifique seu ambiente
+
+No terminal, rode:
+
+```bash
+php -v
+```
+Esperado: PHP >= 7.4
 
 
-## Utilização
+```bash
+mysql --version
+```
+Esperado: MySQL >= 5.6
 
 
+```bash
+node -v
+```
+Esperado: Node.js >= 14
 
-## Funcionamento
+
+```bash
+npm -v
+```
+Esperado: NPM compatível com seu Node.js
+
+```bash
+psql --version
+```
+Esperado: PostgreSQL >= 10
+
+
+## ⬇️ Clone o repositório
+
+```bash
+git clone https://github.com/SEU_USUARIO/SEU_REPOSITORIO.git
+cd desafio-tecnico
+
+```
+
+## 📦 Instalação dos serviços
+
+```bash
+cd api-node
+npm install
+
+```
+
+Configure o arquivo .env com os dados do PostgreSQL.  
+Crie a tabela produtos no banco.  
+
+Para iniciar:
+```bash
+node src/app.js
+```
+A API ficará disponível em: http://localhost:3000/produtos  
+
+
+## 🔹 App PHP + MySQL
+
+```bash
+cd app-php
+php -S 0.0.0.0:8080
+```
+Acesse no navegador: http://localhost:8080 (Obs: caso a prta 8080 esteja sendo utilizada por outro serviço altere-a para 8081, 8082, etc)
+
+
+## 🔹 SPA React
+```bash
+cd web-react/spa-produtos
+npm install
+npm run dev
+```
+Acesse no navegador: http://localhost:5173
+
+
+# Utilização
+
+ * Abra o navegador de sua preferência e acesse os links acima.
+
+ * Faça operações de CRUD:
+
+  * Produtos → via SPA React.
+
+  * Clientes → via App PHP.
+
+ * O React consome a API Node.js para os produtos.
+
+ * O PHP se conecta direto ao MySQL para clientes.
+
+
+# Funcionamento
+
+O projeto é composto por três camadas principais:  
+ * API Node.js → expõe os dados dos produtos (PostgreSQL)
+ * SPA React → interface moderna para CRUD de produtos
+ * App PHP → interface para CRUD de clientes (MySQL)  
+Cada camada pode ser executada independentemente para facilitar testes e manutenção.
