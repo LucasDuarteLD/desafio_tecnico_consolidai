@@ -1,0 +1,120 @@
+{
+  "info": {
+    "_postman_id": "12345678-abcd-efgh-ijkl-1234567890ab",
+    "name": "Desafio ConsolidaAi - Produtos API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "GET /produtos",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/produtos",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "produtos"
+          ]
+        }
+      }
+    },
+    {
+      "name": "GET /produtos/:id",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/produtos/1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "produtos",
+            "1"
+          ]
+        }
+      }
+    },
+    {
+      "name": "POST /produtos",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"nome\": \"Produto Teste\",\n  \"preco\": 99.90,\n  \"estoque\": 10,\n  \"descricao\": \"Produto de teste para API\",\n  \"status\": \"ativo\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/produtos",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "produtos"
+          ]
+        }
+      }
+    },
+    {
+      "name": "PUT /produtos/:id",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"nome\": \"Produto Teste Atualizado\",\n  \"preco\": 89.90,\n  \"estoque\": 15,\n  \"descricao\": \"Atualizado via API\",\n  \"status\": \"ativo\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/produtos/1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "produtos",
+            "1"
+          ]
+        }
+      }
+    },
+    {
+      "name": "DELETE /produtos/:id",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/produtos/1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "produtos",
+            "1"
+          ]
+        }
+      }
+    }
+  ]
+}
