@@ -7,7 +7,7 @@ const pool = require('../config/db');
 // GET /produtos
 router.get('/', async (req, res) => {
   try {
-    const { rows } = await pool.query("SELECT * FROM produtos WHERE status != 'excluido'");
+    const { rows } = await pool.query("SELECT id, nome, preco, estoque, descricao, status, data_alteracao FROM produtos WHERE status != 'excluido'");
     res.json(rows);
   } catch (err) {
     res.status(500).json({ error: err.message });
@@ -18,7 +18,7 @@ router.get('/', async (req, res) => {
 router.get('/:id', async (req, res) => {
   try {
     const { id } = req.params;
-    const { rows } = await pool.query("SELECT * FROM produtos WHERE id = $1 AND status != 'excluido'", [id]);
+    const { rows } = await pool.query("SELECT id, nome, preco, estoque, descricao, status, data_alteracao FROM produtos WHERE id = $1 AND status != 'excluido'", [id]);
     if (rows.length === 0) return res.status(404).json({ message: 'Produto não encontrado' });
     res.json(rows[0]);
   } catch (err) {
