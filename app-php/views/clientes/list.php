@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Clientes</title>
+  <title>Clientes - Desafio Técnico</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -31,7 +31,7 @@ function formatarData($data) {
 ?>
 
   <div class="d-flex justify-content-between align-items-center mb-3">
-    <h1 class="m-0">Clientes</h1>
+    <h1 class="m-0">👤 Clientes</h1>
     <button class="btn btn-primary" onclick="novoCliente()">
         <i class="fa fa-plus"></i> Adicionar Cliente
     </button>
@@ -45,20 +45,26 @@ function formatarData($data) {
       </tr>
     </thead>
     <tbody>
-      <?php foreach ($clientes as $c): ?>
-      <tr>
-        <td><?php echo $c['id'] ?></td>
-        <td><?php echo $c['nome'] ?></td>
-        <td><?php echo formatarCPF($c['cpf']) ?></td>
-        <td><?php echo $c['email'] ?></td>
-        <td><?php echo $c['status'] ?></td>
-        <td><?php echo formatarData($c['data_alteracao']) ?></td>
-        <td>
-          <i class="fa-regular fa-pen-to-square mx-2 pointer text-primary" onclick="editarCliente('<?php echo $c['id'] ?>','<?php echo htmlspecialchars($c['nome']) ?>','<?php echo $c['cpf'] ?>','<?php echo htmlspecialchars($c['email']) ?>','<?php echo $c['status'] ?>')"></i>
-          <i class="fa-regular fa-trash-can mx-2 pointer text-danger" onclick="excluirCliente('<?php echo $c['id'] ?>')"></i>
-        </td>
-      </tr>
-      <?php endforeach; ?>
+      <?php if (empty($clientes)): ?>
+        <tr>
+          <td colspan="7" class="text-center text-muted py-3">Nenhum cliente cadastrado.</td>
+        </tr>
+      <?php else: ?>
+        <?php foreach ($clientes as $c): ?>
+        <tr>
+          <td><?php echo $c['id'] ?></td>
+          <td><?php echo $c['nome'] ?></td>
+          <td><?php echo formatarCPF($c['cpf']) ?></td>
+          <td><?php echo $c['email'] ?></td>
+          <td><?php echo $c['status'] ?></td>
+          <td><?php echo formatarData($c['data_alteracao']) ?></td>
+          <td>
+            <i class="fa-regular fa-pen-to-square mx-2 pointer text-primary" onclick="editarCliente('<?php echo $c['id'] ?>','<?php echo htmlspecialchars($c['nome']) ?>','<?php echo $c['cpf'] ?>','<?php echo htmlspecialchars($c['email']) ?>','<?php echo $c['status'] ?>')"></i>
+            <i class="fa-regular fa-trash-can mx-2 pointer text-danger" onclick="excluirCliente('<?php echo $c['id'] ?>')"></i>
+          </td>
+        </tr>
+        <?php endforeach; ?>
+      <?php endif; ?>
     </tbody>
   </table>
   </div>
